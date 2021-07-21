@@ -1,10 +1,10 @@
-package p1;
+package Day2;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class Demo3 {
+public class Demo4 {
 	static
 	{
 		System.setProperty("webdriver.chrome.driver", "/Users/suneela/EclipeWorkSpace/Automation/SelAutomation/Drivers/chromedriver");
@@ -16,18 +16,17 @@ public class Demo3 {
 		driver.get("https://www.google.com");
 		Thread.sleep(1000);
 		
-		
-		WebElement element=driver.switchTo().activeElement();
-		element.sendKeys("Sunil");
+		driver.manage().window().maximize();
 		
 		
-		driver.close();
-		
+		//driver.manage().window().fullscreen();
+	
+	//	driver.close();
 		
 	}
 	public static void main(String[] args) throws InterruptedException {
 		WebDriver driver= new ChromeDriver();
-		Demo3.test(driver);
+		Demo4.test(driver);
 	}
 
 }
