@@ -1,18 +1,20 @@
-package Day8;
+package Day9;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
-import org.openqa.selenium.Rectangle;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.Color;
 
-public class Demo6 {
+public class Demo4 {
 
 	static {
 		System.setProperty("webdriver.chrome.driver",
@@ -24,19 +26,13 @@ public class Demo6 {
 	public static void main(String[] args) throws InterruptedException, IOException {
 
 		WebDriver driver = new ChromeDriver();
-		driver.get("https://demo.actitime.com/login.do");
+		driver.get("https://www.google.com");
 
-		driver.findElement(By.xpath("//div[text()='Login ']")).click();
-		Thread.sleep(3000);
-		WebElement errorEle = driver.findElement(By.xpath("//span[contains(text(),'invalid')]"));
-		
-		Thread.sleep(3000);
-		File srcFile = errorEle.getScreenshotAs(OutputType.FILE);  //to get the screenshot of element
-		System.out.println(srcFile);
-		FileUtils.copyFile(srcFile, new File("/Users/suneela/EclipeWorkSpace/Automation/SelAutomation/Screenshot/error.png")); 
-		//copy file from java heap file(tmp file) to destinaton flder)
-		
+	
 
+		
+		System.out.println(driver.findElements(By.xpath("//a")).size());
+	
 		driver.close();
 
 	}
