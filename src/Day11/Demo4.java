@@ -6,9 +6,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.Select;
 
-public class Demo1 {
+public class Demo4 {
 
 	static {
 		System.setProperty("webdriver.chrome.driver",
@@ -21,32 +20,19 @@ public class Demo1 {
 
 		WebDriver driver = new ChromeDriver();
 		driver.get("file:/Users/suneela/EclipeWorkSpace/Automation/SelAutomation/File/ActionDemo.html");
-		// driver.get("https://demo.actitime.com/login.do");
 
-		driver.findElement(By.id("A1")).click();
+		driver.findElement(By.id("A4")).click();
 
-		Thread.sleep(1000);
+		Thread.sleep(3000);
+		String xpath1 = "//h1[text()='Block 1']";
+		WebElement block1 = driver.findElement(By.xpath(xpath1));
 
-		String xpath1 = "(//a[text()='About us '])[2]";
-		WebElement aboutUsEle = driver.findElement(By.xpath(xpath1));
+		String xpath3 = "//h1[text()='Block 3']";
+		WebElement block3 = driver.findElement(By.xpath(xpath3));
+
 		Actions actions = new Actions(driver);
-		actions.moveToElement(aboutUsEle).perform();
-		Thread.sleep(1000);
+		actions.dragAndDrop(block1, block3).perform();
 
-		String xpath2 = "(//a[text()='Facts & Figures '])[2]";
-		driver.findElement(By.xpath(xpath2)).click();
-		Thread.sleep(1000);
-		driver.navigate().back();
-		Thread.sleep(1000);
-
-		
-		String xpath3="(//a[text()='ISTQB® Worldwide '])[2]";
-		WebElement worldwideEle=driver.findElement(By.xpath(xpath3));
-		actions.moveToElement(worldwideEle).perform();
-		
-
-		String xpath4="(//a[text()='Find a Training Provider '])[2]";
-		driver.findElement(By.xpath(xpath4)).click();
 		Thread.sleep(1000);
 		driver.close();
 

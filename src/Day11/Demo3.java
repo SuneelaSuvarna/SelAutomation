@@ -8,7 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
-public class Demo1 {
+public class Demo3 {
 
 	static {
 		System.setProperty("webdriver.chrome.driver",
@@ -23,32 +23,12 @@ public class Demo1 {
 		driver.get("file:/Users/suneela/EclipeWorkSpace/Automation/SelAutomation/File/ActionDemo.html");
 		// driver.get("https://demo.actitime.com/login.do");
 
-		driver.findElement(By.id("A1")).click();
-
+		driver.findElement(By.id("A3")).click();
 		Thread.sleep(1000);
-
-		String xpath1 = "(//a[text()='About us '])[2]";
-		WebElement aboutUsEle = driver.findElement(By.xpath(xpath1));
-		Actions actions = new Actions(driver);
-		actions.moveToElement(aboutUsEle).perform();
-		Thread.sleep(1000);
-
-		String xpath2 = "(//a[text()='Facts & Figures '])[2]";
-		driver.findElement(By.xpath(xpath2)).click();
-		Thread.sleep(1000);
-		driver.navigate().back();
-		Thread.sleep(1000);
-
-		
-		String xpath3="(//a[text()='ISTQB® Worldwide '])[2]";
-		WebElement worldwideEle=driver.findElement(By.xpath(xpath3));
-		actions.moveToElement(worldwideEle).perform();
-		
-
-		String xpath4="(//a[text()='Find a Training Provider '])[2]";
-		driver.findElement(By.xpath(xpath4)).click();
-		Thread.sleep(1000);
-		driver.close();
+		String xpath1="//input[@value='Double Click']";
+		WebElement doubleClick = driver.findElement(By.xpath(xpath1));
+		Actions actions=new Actions(driver);
+		actions.doubleClick(doubleClick).perform();
 
 	}
 
