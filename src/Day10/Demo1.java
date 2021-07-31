@@ -1,20 +1,13 @@
-package Day9;
+package Day10;
 
-import java.io.File;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
-
-import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
 
-public class Demo5 {
+public class Demo1 {
 
 	static {
 		System.setProperty("webdriver.chrome.driver",
@@ -26,20 +19,24 @@ public class Demo5 {
 	public static void main(String[] args) throws InterruptedException, IOException {
 
 		WebDriver driver = new ChromeDriver();
-		driver.get("https://www.amazon.in/");
+		driver.get("file:/Users/suneela/EclipeWorkSpace/Automation/SelAutomation/File/ListBox1.html");
+		// driver.get("https://demo.actitime.com/login.do");
 
 		Thread.sleep(1000);
-		driver.findElement(By.id("twotabsearchtextbox")).sendKeys("TV");
+
+		WebElement listBox = driver.findElement(By.id("A1"));
+
+		Select select = new Select(listBox);
+		select.selectByIndex(0);
 		Thread.sleep(1000);
-		List<WebElement> tvSuggestion = driver.findElements(By.xpath("//div[@class='s-suggestion']"));
+		select.selectByValue("b");
 		Thread.sleep(1000);
-
-		for (int i = 0; i < tvSuggestion.size(); i++) {
-
-			System.out.println(tvSuggestion.get(i).getAttribute("data-keyword"));
-
-		}
-
+		select.selectByVisibleText("Rajahmundry");
+		Thread.sleep(1000);
+		boolean flag = select.isMultiple();
+		System.out.println(flag);
+		Thread.sleep(1000);
+		// select.selectByIndex(4);
 		driver.close();
 
 	}
