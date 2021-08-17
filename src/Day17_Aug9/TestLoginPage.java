@@ -26,6 +26,7 @@ public class TestLoginPage {
 		login.setUserName("aaaa");
 		login.setPassword("bbb");
 		login.clickOnLogin();
+		driver.close();
 
 	}
 }
